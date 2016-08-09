@@ -29,11 +29,16 @@ void setup() {
   FourthPoint.attach(6);
   FifthPoint.attach(5);
   SixthPoint.attach(3);
+  Serial.begin(9600);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-
+if(Serial.available()>0){
+  char Data=Serial.read();
+  ReceiveLetter(Data);
+  Serial.println(Data);
+}
 }
 
 
@@ -118,64 +123,88 @@ void ReceiveLetter(char DataIn) {
       CreateLetter(1, 0, 1, 0, 1, 1);
       break;
     case '1':
-      CreateLetter(0, 0, 1,1,1,1); //prefix for number
+      CreateLetter(0, 0, 1, 1, 1, 1); //prefix for number
       delay(500);
       CreateLetter(1, 0, 0, 0, 0, 0); //a
       break;
     case '2':
-      CreateLetter(0, 0, 1,1,1,1); //prefix for number
+      CreateLetter(0, 0, 1, 1, 1, 1); //prefix for number
       delay(500);
       CreateLetter(1, 1, 0, 0, 0, 0);
       break;
     case '3':
-      CreateLetter(0, 0, 1,1,1,1); //prefix for number
+      CreateLetter(0, 0, 1, 1, 1, 1); //prefix for number
       delay(500);
       CreateLetter(1, 0, 0, 1, 0, 0);
       break;
 
     case '4':
-      CreateLetter(0, 0, 1,1,1,1); //prefix for number
+      CreateLetter(0, 0, 1, 1, 1, 1); //prefix for number
       delay(500);
       CreateLetter(1, 0, 0, 1, 1, 0);
       break;
 
     case '5':
-      CreateLetter(0, 0, 1,1,1,1); //prefix for number
+      CreateLetter(0, 0, 1, 1, 1, 1); //prefix for number
       delay(500);
       CreateLetter(1, 0, 0, 0, 1, 0);
       break;
     case '6':
-      CreateLetter(0, 0, 1,1,1,1); //prefix for number
+      CreateLetter(0, 0, 1, 1, 1, 1); //prefix for number
       delay(500);
       CreateLetter(1, 1, 0, 1, 0, 0);
       break;
     case '7':
-      CreateLetter(0, 0, 1,1,1,1); //prefix for number
+      CreateLetter(0, 0, 1, 1, 1, 1); //prefix for number
       delay(500);
       CreateLetter(1, 1, 1, 1, 0, 0);
       break;
     case '8':
-      CreateLetter(0, 0, 1,1,1,1); //prefix for number
+      CreateLetter(0, 0, 1, 1, 1, 1); //prefix for number
       delay(500);
       CreateLetter(1, 1, 0, 0, 1, 0);
       break;
     case '9':
-      CreateLetter(0, 0, 1,1,1,1); //prefix for number
+      CreateLetter(0, 0, 1, 1, 1, 1); //prefix for number
       delay(500);
       CreateLetter(0, 1, 0, 1, 0, 0);
       break;
     case '0':
-      CreateLetter(0, 0, 1,1,1,1); //prefix for number
+      CreateLetter(0, 0, 1, 1, 1, 1); //prefix for number
       delay(500);
       CreateLetter(0, 1, 0, 1, 1, 0);
       break;
 
     case ',':
-      CreateLetter(0,1,0,0,0,0);
+      CreateLetter(0, 1, 0, 0, 0, 0);
       break;
     case '.':
-      CreateLetter(0,0,1,0,0,0);
+      CreateLetter(0, 0, 1, 0, 0, 0);
       break;
+   case '?':
+      CreateLetter(0,1,0,0,0,1);
+      break:
+   case ':':
+      CreateLetter(0,1,1,0,0,0);
+      break:
+   case '!':
+      CreateLetter(0,1,1,0,1,0);
+      break:
+   case '"':
+      CreateLetter(0,1,1,0,0,1);
+      break:
+   case '(':
+      CreateLetter(1,1,0,0,0,1);
+      break:
+   case ')':
+      CreateLetter(0,0,1,1,1,0);
+      break:
+   case '-':
+      CreateLetter(0,0,1,0,0,1);
+      break:
+   case '*':
+      CreateLetter(0,0,1,0,1,0);
+      break:
   }
 }
 
